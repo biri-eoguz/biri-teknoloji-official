@@ -44,11 +44,18 @@ export default function HelperSection({
             el="h2"
             size="xl"
             weight="bold"
-            className="text-center lg:text-left"
+            className="text-center md:text-left"
           >
             {title}
           </Title>
-          <Text className="text-center lg:text-left" size="xl">
+          <Text
+            lang="tr"
+            className={cn(
+              "max-w-[32ch] md:max-w-[50ch] mx-auto text-center leading-[1.75] tracking-normal text-balance hyphens-none wrap-break-word",
+              "md:max-w-[50ch] md:text-justify md:leading-[1.65] md:tracking-[0.01em] md:hyphens-auto md:pr-6"
+            )}
+            size="xl"
+          >
             {description}
           </Text>
         </div>
