@@ -1,8 +1,17 @@
+"use client";
+
 import HeroSection from "@/components/hero-section";
 import SecondarySection from "@/components/secondary-section";
-import HelperSection from "@/components/helper-section";
-import SolutionsSection from "@/components/solutions-section";
 import LayoutContent from "@/components/layout/layout-content";
+import dynamic from "next/dynamic";
+
+const HelperSection = dynamic(() => import("@/components/helper-section"), {
+  ssr: false,
+});
+const SolutionsSection = dynamic(
+  () => import("@/components/solutions-section"),
+  { ssr: false }
+);
 
 export default function Home() {
   return (
