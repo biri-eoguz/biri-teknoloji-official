@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { Geist, Stint_Ultra_Expanded } from "next/font/google";
 import LayoutHeader from "@/components/layout/layout-header";
 import LayoutFooter from "@/components/layout/layout-footer";
-import LayoutPage from "@/components/layout/layout-page";
 
 const stintUltraExpanded = Stint_Ultra_Expanded({
   subsets: ["latin"],
@@ -38,14 +37,13 @@ export default function RootLayout({
         className={cn(
           geistSans.variable,
           stintUltraExpanded.variable,
-          "antialiased"
+          "antialiased",
+          "flex flex-col bg-[linear-gradient(85deg,#442063,#2b233c_50%,#1d3263_100%)] w-full min-h-screen"
         )}
       >
-        <LayoutPage>
-          <LayoutHeader />
-          {children}
-          <LayoutFooter />
-        </LayoutPage>
+        <LayoutHeader />
+        {children}
+        <LayoutFooter />
       </body>
     </html>
   );

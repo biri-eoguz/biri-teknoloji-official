@@ -41,7 +41,7 @@ export default function HelperSection({
         {orientation === "left" && <HelperSectionImage image={image} />}
         <div className="flex flex-col gap-4">
           <Title
-            el="h2"
+            el="h1"
             size="xl"
             weight="bold"
             className="text-center md:text-left"

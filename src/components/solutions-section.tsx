@@ -16,6 +16,7 @@ export default function SolutionsSection() {
       {...animation}
     >
       <Title
+        el="h1"
         className="col-span-full mb-8"
         align="center"
         size="2xl"

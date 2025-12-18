@@ -26,13 +26,13 @@ export default function LayoutHeader() {
       className={cn(
         "w-full h-[72px] transition-colors duration-300 bg-transparent",
         "sticky top-0 z-50",
-        isScrolled && "bg-[#2c1e4a] backdrop-blur-lg"
+        isScrolled && "bg-[#2c1e4a]"
       )}
     >
       <LayoutHeaderContent>
         <LayoutHeaderLogo />
         <div className="hidden md:block">
-          <div className="flex items-center gap-4 *:transition-all *:duration-250 *:hover:scale-[1.1]">
+          <div className="flex items-center gap-4">
             {headerLinks.map((link) => (
               <LayoutHeaderLink key={link.href} {...link} />
             ))}
@@ -45,9 +45,9 @@ export default function LayoutHeader() {
 
 function LayoutHeaderContent({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-center md:justify-between gap-6 w-full h-full responsive-horizontal">
+    <nav className="flex items-center justify-center md:justify-between gap-6 w-full h-full responsive-horizontal">
       {children}
-    </div>
+    </nav>
   );
 }
 
@@ -69,7 +69,7 @@ function LayoutHeaderLink({ title, href }: { title: string; href: string }) {
   return (
     <Link href={href}>
       <Button
-        className="bg-transparent hover:bg-transparent hover:cursor-pointer"
+        className="bg-transparent hover:bg-transparent hover:cursor-pointer transition-all duration-250 hover:scale-[1.1]"
         variant="ghost"
       >
         <Text weight="semibold">{title}</Text>
