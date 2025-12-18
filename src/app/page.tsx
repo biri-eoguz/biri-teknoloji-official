@@ -8,6 +8,7 @@ import dynamic from "next/dynamic";
 const HelperSection = dynamic(() => import("@/components/helper-section"), {
   ssr: false,
 });
+
 const SolutionsSection = dynamic(
   () => import("@/components/solutions-section"),
   { ssr: false }
