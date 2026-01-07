@@ -1,21 +1,11 @@
-"use client";
-
 import Image from "next/image";
 import Title from "./title";
-import { useFadeIn } from "@/lib/use-fade-in";
 import { cn } from "@/lib/utils";
+import AnimatedSection from "./animated-section";
 
 export default function SecondarySection() {
-  const { ref, visible } = useFadeIn();
-
   return (
-    <section
-      ref={ref}
-      className={cn(
-        "relative fade-section responsive-horizontal my-[clamp(6rem,24svh,16rem)] md:my-[clamp(12rem,12svh,16rem)]",
-        visible && "is-visible"
-      )}
-    >
+    <AnimatedSection className="relative responsive-horizontal my-[clamp(6rem,24svh,16rem)] md:my-[clamp(12rem,12svh,16rem)]">
       <SecondarySectionLightning
         position="center"
         className="block sm:hidden"
@@ -35,7 +25,7 @@ export default function SecondarySection() {
           <span>YANINIZDA BİRİ VAR!</span>
         </Title>
       </div>
-    </section>
+    </AnimatedSection>
   );
 }
 
@@ -62,6 +52,7 @@ function SecondarySectionLightning({
         alt=""
         width={400}
         height={400}
+        loading="lazy"
         className="object-contain"
       />
     </figure>
@@ -76,6 +67,7 @@ function SecondarySectionImage() {
         alt=""
         width={540}
         height={540}
+        loading="lazy"
         className="object-cover"
       />
     </figure>

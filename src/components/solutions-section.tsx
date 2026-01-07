@@ -1,22 +1,13 @@
-"use client";
-
 import Title from "./title";
 import Image from "next/image";
 import { solutions } from "@/constants/solutions";
-import { useFadeIn } from "@/lib/use-fade-in";
-import { cn } from "@/lib/utils";
+import AnimatedSection from "./animated-section";
 
 export default function SolutionsSection() {
-  const { ref, visible } = useFadeIn();
-
   return (
-    <section
+    <AnimatedSection
       id="solutions"
-      ref={ref}
-      className={cn(
-        "grid grid-cols-2 md:grid-cols-3 gap-12 w-full responsive-horizontal fade-section",
-        visible && "is-visible"
-      )}
+      className="grid grid-cols-2 md:grid-cols-3 gap-12 w-full responsive-horizontal"
     >
       <Title
         el="h1"
@@ -30,7 +21,7 @@ export default function SolutionsSection() {
       {solutions.map((solution) => (
         <SolutionCard key={solution.title} {...solution} />
       ))}
-    </section>
+    </AnimatedSection>
   );
 }
 
@@ -43,6 +34,7 @@ function SolutionCard({ title, image }: { title: string; image: string }) {
           alt=""
           width={96}
           height={96}
+          loading="lazy"
           className="object-contain"
         />
       </figure>

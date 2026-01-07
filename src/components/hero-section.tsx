@@ -1,21 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import Title from "./title";
-import { useFadeIn } from "@/lib/use-fade-in";
-import { cn } from "@/lib/utils";
 
 export default function HeroSection() {
-  const { ref, visible } = useFadeIn();
-
   return (
-    <section
-      ref={ref}
-      className={cn(
-        "flex flex-col items-center relative responsive-horizontal mt-8",
-        visible && "fade-section is-visible"
-      )}
-    >
+    <section className="flex flex-col items-center relative responsive-horizontal mt-8">
       <HeroSectionVideo />
       <Title
         size="2xl"

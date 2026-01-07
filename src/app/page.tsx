@@ -1,5 +1,3 @@
-"use client";
-
 import HeroSection from "@/components/hero-section";
 import SecondarySection from "@/components/secondary-section";
 import LayoutContent from "@/components/layout/layout-content";
