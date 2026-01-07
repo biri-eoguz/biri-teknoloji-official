@@ -11,19 +11,15 @@ import Link from "next/link";
 import { footerLinks } from "@/constants/footer-links";
 import type { FormEvent } from "react";
 import { useFadeIn } from "@/lib/use-fade-in";
-import { cn } from "@/lib/utils";
 
 export default function LayoutFooter() {
-  const { ref, visible } = useFadeIn();
+  const ref = useFadeIn<HTMLDivElement>();
 
   return (
     <footer
       id="contact"
       ref={ref}
-      className={cn(
-        "w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-8 my-16 responsive-horizontal fade-section",
-        visible && "is-visible"
-      )}
+      className="w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-8 my-16 responsive-horizontal"
     >
       <LayoutFooterTitle />
       <LayoutFooterContactForm />
@@ -78,6 +74,7 @@ function LayoutFooterSocialMediaLink({
           alt=""
           width={48}
           height={48}
+          loading="lazy"
           className="w-full h-full object-contain"
         />
       </Button>
@@ -188,6 +185,7 @@ function LayoutFooterIllustration() {
       (max-width: 1024px) 360px,
       400px
       "
+        loading="lazy"
         className="w-full h-full object-contain"
       />
     </figure>

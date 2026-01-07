@@ -15,6 +15,7 @@ const stintUltraExpanded = Stint_Ultra_Expanded({
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -38,7 +39,7 @@ export default function RootLayout({
           geistSans.variable,
           stintUltraExpanded.variable,
           "antialiased",
-          "flex flex-col bg-[linear-gradient(85deg,#442063,#2b233c_50%,#1d3263_100%)] w-full min-h-screen"
+          "flex flex-col w-full min-h-screen"
         )}
       >
         <LayoutHeader />

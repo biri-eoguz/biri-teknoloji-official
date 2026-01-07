@@ -1,11 +1,9 @@
-"use client";
-
 import Image from "next/image";
 import React from "react";
 import Title from "./title";
 import Text from "./text";
 import { cn } from "@/lib/utils";
-import { useFadeIn } from "@/lib/use-fade-in";
+import AnimatedSection from "./animated-section";
 
 export default function HelperSection({
   id,
@@ -13,7 +11,6 @@ export default function HelperSection({
   description,
   image,
   orientation,
-  className,
   ...props
 }: {
   id?: string;
@@ -22,24 +19,13 @@ export default function HelperSection({
   image: string;
   orientation: "left" | "right";
 } & React.ComponentProps<"section">) {
-  const { ref, visible } = useFadeIn();
-
   return (
     <section
       id={id}
-      ref={ref}
-      className={cn(
-        "relative bg-[linear-gradient(0deg,rgba(252,227,251,0),rgba(252,227,251,0.4)_40%,rgba(252,227,251,0.4)_50%,rgba(252,227,251,0)_100%)]",
-        className
-      )}
+      className="relative bg-[linear-gradient(0deg,rgba(252,227,251,0),rgba(252,227,251,0.4)_40%,rgba(252,227,251,0.4)_50%,rgba(252,227,251,0)_100%)]"
       {...props}
     >
-      <div
-        className={cn(
-          "flex flex-col-reverse fade-section lg:flex-row items-center justify-between gap-8 responsive-horizontal py-24",
-          visible && "is-visible"
-        )}
-      >
+      <AnimatedSection className="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 responsive-horizontal py-24">
         {orientation === "left" && <HelperSectionImage image={image} />}
         <div className="flex flex-col gap-4">
           <Title
@@ -62,7 +48,7 @@ export default function HelperSection({
           </Text>
         </div>
         {orientation === "right" && <HelperSectionImage image={image} />}
-      </div>
+      </AnimatedSection>
     </section>
   );
 }
@@ -75,6 +61,7 @@ const HelperSectionImage = ({ image }: { image: string }) => {
         alt=""
         width={400}
         height={400}
+        loading="lazy"
         className="object-contain"
       />
     </figure>

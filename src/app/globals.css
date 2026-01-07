@@ -126,6 +126,7 @@
 
   body {
     @apply bg-background text-foreground;
+    background: linear-gradient(85deg, #442063, #2b233c 50%, #1d3263 100%);
   }
 
   h1,h2,h3,h4,h5,h6 {
