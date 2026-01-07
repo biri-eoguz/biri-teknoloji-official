@@ -22,13 +22,18 @@ export default function HeroSection() {
 function HeroSectionVideo() {
   return (
     <div
-      className="pointer-events-none absolute inset-0 -translate-y-[12%] opacity-15 flex items-center justify-center"
+      className="pointer-events-none absolute inset-0 -translate-y-[12%] flex items-center justify-center"
       aria-hidden
     >
       <video
-        className="size-[clamp(360px,72vw,720px)] object-cover"
+        className="
+          size-[clamp(360px,72vw,720px)]
+          object-cover
+          [filter:brightness(0.35)_saturate(1.5)_contrast(0.9)]
+          translate-z-0
+          will-change-filter
+        "
         preload="metadata"
-        poster="/video/hero-section.webm"
         loop
         muted
         autoPlay
