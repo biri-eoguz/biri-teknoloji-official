@@ -7,20 +7,23 @@ import { Field, FieldTitle } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import Text from "@/components/text";
-import { motion } from "framer-motion";
-import { createScrollAnimation } from "@/constants/animations";
 import Link from "next/link";
 import { footerLinks } from "@/constants/footer-links";
 import type { FormEvent } from "react";
-
-const animation = createScrollAnimation();
+import { useFadeIn } from "@/lib/use-fade-in";
+import { cn } from "@/lib/utils";
 
 export default function LayoutFooter() {
+  const { ref, visible } = useFadeIn();
+
   return (
-    <motion.footer
+    <footer
       id="contact"
-      className="w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-8 my-16 responsive-horizontal"
-      {...animation}
+      ref={ref}
+      className={cn(
+        "w-full grid grid-cols-1 lg:grid-cols-2 items-center gap-8 my-16 responsive-horizontal fade-section",
+        visible && "is-visible"
+      )}
     >
       <LayoutFooterTitle />
       <LayoutFooterContactForm />
@@ -29,7 +32,7 @@ export default function LayoutFooter() {
         <LayoutFooterIllustration />
         <LayoutFooterSocialMedia />
       </div>
-    </motion.footer>
+    </footer>
   );
 }
 

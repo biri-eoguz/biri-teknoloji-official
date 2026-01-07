@@ -5,11 +5,7 @@ import React from "react";
 import Title from "./title";
 import Text from "./text";
 import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import { createScrollAnimation } from "@/constants/animations";
-import { useInView } from "react-intersection-observer";
-
-const animation = createScrollAnimation();
+import { useFadeIn } from "@/lib/use-fade-in";
 
 export default function HelperSection({
   id,
@@ -26,10 +22,7 @@ export default function HelperSection({
   image: string;
   orientation: "left" | "right";
 } & React.ComponentProps<"section">) {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    rootMargin: "-100px",
-  });
+  const { ref, visible } = useFadeIn();
 
   return (
     <section
@@ -41,54 +34,48 @@ export default function HelperSection({
       )}
       {...props}
     >
-      {inView && (
-        <>
-          <motion.div
-            className="flex flex-col-reverse lg:flex-row items-center justify-between gap-16 responsive-horizontal py-24"
-            {...animation}
+      <div
+        className={cn(
+          "flex flex-col-reverse fade-section lg:flex-row items-center justify-between gap-8 responsive-horizontal py-24",
+          visible && "is-visible"
+        )}
+      >
+        {orientation === "left" && <HelperSectionImage image={image} />}
+        <div className="flex flex-col gap-4">
+          <Title
+            el="h1"
+            size="xl"
+            weight="bold"
+            className="text-center lg:text-left"
           >
-            {orientation === "left" && <HelperSectionImage image={image} />}
-            <div className="flex flex-col gap-4">
-              <Title
-                el="h1"
-                size="xl"
-                weight="bold"
-                className="text-center md:text-left"
-              >
-                {title}
-              </Title>
-              <Text
-                lang="tr"
-                className={cn(
-                  "max-w-[32ch] md:max-w-[50ch] mx-auto text-center leading-[1.75] tracking-normal text-balance hyphens-none wrap-break-word",
-                  "md:max-w-[50ch] md:text-justify md:leading-[1.65] md:tracking-[0.01em] md:hyphens-auto md:pr-6"
-                )}
-                size="xl"
-              >
-                {description}
-              </Text>
-            </div>
-            {orientation === "right" && <HelperSectionImage image={image} />}
-          </motion.div>
-        </>
-      )}
+            {title}
+          </Title>
+          <Text
+            lang="tr"
+            className={cn(
+              "md:max-w-[50ch] mx-auto text-center leading-[1.75] tracking-normal text-balance hyphens-none wrap-break-word",
+              "md:max-w-[50ch] lg:text-justify lg:leading-[1.65] lg:tracking-[0.01em] lg:hyphens-auto lg:pr-6"
+            )}
+            size="lg"
+          >
+            {description}
+          </Text>
+        </div>
+        {orientation === "right" && <HelperSectionImage image={image} />}
+      </div>
     </section>
   );
 }
 
 const HelperSectionImage = ({ image }: { image: string }) => {
   return (
-    <figure className="relative shrink-0 size-[200px] md:size-[280px] lg:size-[400px] select-none">
+    <figure className="relative shrink-0 size-[clamp(160px,60vw,240px)] lg:size-[320px] select-none">
       <Image
         src={image}
         alt=""
-        fill
-        sizes="
-      (max-width: 640px) 200px,
-      (max-width: 768px) 280px,
-      400px
-      "
-        className="w-full h-full object-contain"
+        width={400}
+        height={400}
+        className="object-contain"
       />
     </figure>
   );

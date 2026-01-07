@@ -24,7 +24,7 @@ export default function LayoutHeader() {
   return (
     <header
       className={cn(
-        "w-full h-[72px] transition-colors duration-300 bg-transparent",
+        "w-full h-[72px] transition-colors duration-100 bg-transparent",
         "sticky top-0 z-50",
         isScrolled && "bg-[#2c1e4a]"
       )}
