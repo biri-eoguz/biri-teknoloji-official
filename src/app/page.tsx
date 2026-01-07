@@ -3,16 +3,8 @@
 import HeroSection from "@/components/hero-section";
 import SecondarySection from "@/components/secondary-section";
 import LayoutContent from "@/components/layout/layout-content";
-import dynamic from "next/dynamic";
-
-const HelperSection = dynamic(() => import("@/components/helper-section"), {
-  ssr: false,
-});
-
-const SolutionsSection = dynamic(
-  () => import("@/components/solutions-section"),
-  { ssr: false }
-);
+import HelperSection from "@/components/helper-section";
+import SolutionsSection from "@/components/solutions-section";
 
 export default function Home() {
   return (
@@ -23,7 +15,6 @@ export default function Home() {
 
       <HelperSection
         id="about-us"
-        className="mt-12"
         title="HAKKIMIZDA"
         description="Biri İleri Teknoloji, güncel teknolojileri hayatın her alanına entegre etmeyi hedefleyen bir dijital dönüşüm ve inovasyon şirketidir. Kurumların ve bireylerin dijitalleşme yolculuklarına eşlik ederken aynı zamanda teknoloji odaklı start-up projeleri geliştiriyor ve ölçeklenebilir iş modelleri üzerine çalışıyoruz."
         image="/vectors/vector-3.svg"

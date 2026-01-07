@@ -1,19 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Title from "./title";
-import { createScrollAnimation } from "@/constants/animations";
 import Image from "next/image";
 import { solutions } from "@/constants/solutions";
-
-const animation = createScrollAnimation();
+import { useFadeIn } from "@/lib/use-fade-in";
+import { cn } from "@/lib/utils";
 
 export default function SolutionsSection() {
+  const { ref, visible } = useFadeIn();
+
   return (
-    <motion.section
+    <section
       id="solutions"
-      className="grid grid-cols-2 md:grid-cols-3 gap-12 w-full responsive-horizontal animate-appear pt-8"
-      {...animation}
+      ref={ref}
+      className={cn(
+        "grid grid-cols-2 md:grid-cols-3 gap-12 w-full responsive-horizontal fade-section",
+        visible && "is-visible"
+      )}
     >
       <Title
         el="h1"
@@ -27,24 +30,20 @@ export default function SolutionsSection() {
       {solutions.map((solution) => (
         <SolutionCard key={solution.title} {...solution} />
       ))}
-    </motion.section>
+    </section>
   );
 }
 
 function SolutionCard({ title, image }: { title: string; image: string }) {
   return (
     <div className="flex flex-col items-center gap-6">
-      <figure className="size-12 md:size-16 lg:size-[96px] select-none relative">
+      <figure className="size-[clamp(48px,60vw,96px)] select-none relative">
         <Image
           src={image}
           alt=""
-          fill
-          sizes="
-          (max-width: 640px) 48px,
-          (max-width: 768px) 64px,
-          96px
-          "
-          className="w-full h-full object-contain"
+          width={96}
+          height={96}
+          className="object-contain"
         />
       </figure>
       <p className="text-white text-center text-sm md:text-base lg:text-lg font-semibold">
