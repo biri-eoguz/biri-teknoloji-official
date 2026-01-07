@@ -15,6 +15,7 @@ const stintUltraExpanded = Stint_Ultra_Expanded({
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
