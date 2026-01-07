@@ -1,10 +1,11 @@
 import Image from "next/image";
 import Title from "./title";
+import LazyHeroSectionVideo from "./lazy-hero-section-animation";
 
 export default function HeroSection() {
   return (
     <section className="flex flex-col items-center relative responsive-horizontal mt-8">
-      <HeroSectionVideo />
+      <LazyHeroSectionVideo />
       <Title
         size="2xl"
         align="center"
@@ -19,27 +20,27 @@ export default function HeroSection() {
   );
 }
 
-function HeroSectionVideo() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 -translate-y-[12%] opacity-15 flex items-center justify-center"
-      aria-hidden
-    >
-      <video
-        className="size-[clamp(360px,72vw,720px)] object-cover"
-        preload="metadata"
-        poster="/video/hero-section.webm"
-        loop
-        muted
-        playsInline
-        autoPlay
-      >
-        <source src="/video/hero-section.webm" type="video/webm" />
-        <source src="/video/hero-section.mp4" type="video/mp4" />
-      </video>
-    </div>
-  );
-}
+// function HeroSectionVideo() {
+//   return (
+//     <div
+//       className="pointer-events-none absolute inset-0 -translate-y-[12%] opacity-15 flex items-center justify-center"
+//       aria-hidden
+//     >
+//       <video
+//         className="size-[clamp(360px,72vw,720px)] object-cover"
+//         preload="none"
+//         poster="/video/hero-section.webm"
+//         loop
+//         muted
+//         autoPlay
+//         playsInline
+//       >
+//         <source src="/video/hero-section.webm" type="video/webm" />
+//         <source src="/video/hero-section.mp4" type="video/mp4" />
+//       </video>
+//     </div>
+//   );
+// }
 
 function HeroSectionImage() {
   return (
