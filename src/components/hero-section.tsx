@@ -40,7 +40,6 @@ function HeroSectionVideo() {
         playsInline
       >
         <source src="/video/hero-section.webm" type="video/webm" />
-        <source src="/video/hero-section.mp4" type="video/mp4" />
       </video>
     </div>
   );
