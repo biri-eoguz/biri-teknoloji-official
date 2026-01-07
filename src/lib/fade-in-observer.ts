@@ -30,4 +30,14 @@ class FadeInObserver {
     }
 }
 
-export const fadeInObserver = new FadeInObserver();
+let instance: FadeInObserver | null = null;
+
+export function getFadeInObserver() {
+    if (typeof window === "undefined") return null;
+
+    if (!instance) {
+        instance = new FadeInObserver();
+    }
+
+    return instance;
+}

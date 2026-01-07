@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { fadeInObserver } from "./fade-in-observer";
+import { getFadeInObserver } from "./fade-in-observer";
 
 export function useFadeIn<T extends HTMLElement>() {
     const ref = useRef<T | null>(null);
@@ -13,7 +13,10 @@ export function useFadeIn<T extends HTMLElement>() {
             return;
         }
 
-        fadeInObserver.observe(el, (target) => {
+        const observer = getFadeInObserver();
+        if (!observer) return;
+
+        observer.observe(el, (target) => {
             target.classList.add("is-visible");
         });
     }, []);
