@@ -5,7 +5,7 @@ import LazyHeroSectionVideo from "./lazy-hero-section-animation";
 export default function HeroSection() {
   return (
     <section className="flex flex-col items-center relative responsive-horizontal mt-8">
-      <LazyHeroSectionVideo />
+      {/* <LazyHeroSectionVideo /> */}
       <Title
         size="2xl"
         align="center"
