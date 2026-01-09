@@ -4,7 +4,7 @@ import Title from "./title";
 export default function HeroSection() {
   return (
     <section className="flex flex-col items-center relative responsive-horizontal mt-8">
-      <HeroSectionVideo />
+      {/* <HeroSectionVideo /> */}
       <Title
         size="2xl"
         align="center"
@@ -19,28 +19,28 @@ export default function HeroSection() {
   );
 }
 
-function HeroSectionVideo() {
-  return (
-    <div
-      className="pointer-events-none absolute inset-0 opacity-10 -translate-y-[12%] flex items-center justify-center"
-      aria-hidden
-    >
-      <video
-        className="
-          size-[clamp(360px,72vw,720px)]
-          object-cover
-        "
-        preload="metadata"
-        loop
-        muted
-        autoPlay
-        playsInline
-      >
-        <source src="/video/hero-section.mov" type="video/mov" />
-        <source src="/video/hero-section.webm" type="video/webm" />
-      </video>
-    </div>
-  );
+// function HeroSectionVideo() {
+//   return (
+//     <div
+//       className="pointer-events-none absolute inset-0 opacity-10 -translate-y-[12%] flex items-center justify-center"
+//       aria-hidden
+//     >
+//       <video
+//         className="
+//           size-[clamp(360px,72vw,720px)]
+//           object-cover
+//         "
+//         preload="metadata"
+//         loop
+//         muted
+//         autoPlay
+//         playsInline
+//       >
+//         <source src="/video/hero-section.mov" type="video/quicktime" />
+//         <source src="/video/hero-section.webm" type="video/webm" />
+//       </video>
+//     </div>
+//   );
 }
 
 function HeroSectionImage() {

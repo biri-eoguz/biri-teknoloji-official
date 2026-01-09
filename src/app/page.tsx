@@ -10,6 +10,13 @@ export default function Home() {
       <link
         rel="preload"
         as="video"
+        href="/video/hero-section.mov"
+        type="video/quicktime"
+        fetchPriority="high"
+      />
+      <link
+        rel="preload"
+        as="video"
         href="/video/hero-section.webm"
         type="video/webm"
         fetchPriority="high"
