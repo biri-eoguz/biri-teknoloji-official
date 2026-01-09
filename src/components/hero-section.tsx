@@ -41,7 +41,7 @@ export default function HeroSection() {
 //       </video>
 //     </div>
 //   );
-}
+// }
 
 function HeroSectionImage() {
   return (

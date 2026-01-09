@@ -7,7 +7,7 @@ import SolutionsSection from "@/components/solutions-section";
 export default function Home() {
   return (
     <>
-      <link
+      {/* <link
         rel="preload"
         as="video"
         href="/video/hero-section.mov"
@@ -20,7 +20,7 @@ export default function Home() {
         href="/video/hero-section.webm"
         type="video/webm"
         fetchPriority="high"
-      />
+      /> */}
       <LayoutContent>
         <HeroSection />
 
